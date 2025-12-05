@@ -157,7 +157,73 @@ ul {
   border-radius: 64px;
   margin-top: 48px;
   color: white;
+  /* 添加魔法效果相关属性 */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  transform-origin: center bottom;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
+
+/* 魔法按钮悬停效果 */
+.btn:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(212, 43, 57, 0.4), 0 0 20px rgba(212, 43, 57, 0.3);
+  background-color: #e63946;
+}
+
+/* 添加闪光效果 */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* 其他按钮的悬停效果 */
+.btn2 {
+  background-color: var(--title-color);
+  color: var(--body-color);
+  /* 添加魔法效果相关属性 */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  transform-origin: center bottom;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.btn2:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(40, 37, 37, 0.4), 0 0 20px rgba(40, 37, 37, 0.3);
+}
+
+.btn2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.btn2:hover::before {
+  left: 100%;
+}
+
 .main-section1 {
   display: flex;
   flex-direction: column;
@@ -184,7 +250,36 @@ ul {
 .gifts-box {
   width: 100%;
   max-width: 142px;
+  /* 添加悬停动效 */
+  transition: all 0.4s ease;
+  transform-origin: center bottom;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
 }
+
+.gifts-box:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 1px 1px 20px 6px rgba(34, 60, 80, 0.2);
+}
+
+/* 添加闪光效果 */
+.gifts-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.gifts-box:hover::before {
+  left: 100%;
+}
+
 .gifts-box h2 {
   color: var(--title-color);
   font-size: 20px;
@@ -225,7 +320,35 @@ ul {
   border-radius: 12px;
   box-shadow: 1px 1px 19px 8px rgba(34, 60, 80, 0.14);
   padding: 24px;
+  /* 添加悬停动效 */
+  transition: all 0.4s ease;
+  transform-origin: center bottom;
+  z-index: 1;
+  overflow: hidden;
 }
+
+.coust:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 1px 1px 25px 12px rgba(34, 60, 80, 0.25);
+}
+
+/* 添加闪光效果 */
+.coust::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.coust:hover::before {
+  left: 100%;
+}
+
 .coust h2 {
   padding: 0;
   font-size: 20px;
@@ -269,7 +392,36 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* 添加悬停动效 */
+  transition: all 0.4s ease;
+  transform-origin: center bottom;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
 }
+
+.coust2:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 1px 1px 25px 12px rgba(34, 60, 80, 0.25);
+}
+
+/* 添加闪光效果 */
+.coust2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.coust2:hover::before {
+  left: 100%;
+}
+
 .coust2 h2 {
   margin-top: 34px;
 }
@@ -302,15 +454,19 @@ ul {
   padding: 18px 24px;
   border: none;
 }
-.btn2 {
-  background-color: var(--title-color);
-  color: var(--body-color);
-}
+
 .main-section5 img {
   width: 100%;
   max-width: 350px;
   height: 100%;
   max-height: 250px;
+  /* 添加悬停时逆时针旋转15度的效果 */
+  transition: transform 0.4s ease;
+  transform-origin: center;
+}
+
+.main-section5 img:hover {
+  transform: rotate(-15deg);
 }
 .footer-section {
   display: flex;
