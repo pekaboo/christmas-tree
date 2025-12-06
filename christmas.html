@@ -468,6 +468,7 @@
         }
 
         function createDefaultPhotos() {
+            // 添加默认的文本照片
             const canvas = document.createElement('canvas');
             canvas.width = 512; canvas.height = 512;
             const ctx = canvas.getContext('2d');
@@ -481,6 +482,23 @@
             const tex = new THREE.CanvasTexture(canvas);
             tex.colorSpace = THREE.SRGBColorSpace;
             addPhotoToScene(tex);
+            
+            // 自动加载/photo目录下的照片
+            // 注意：这需要服务器端配置允许列出目录内容或者提供API接口
+            // 如果无法列出目录，则需要手动维护照片列表
+            const defaultPhotoPaths = [
+                '/photo/1.png',
+                // 可以在此处添加更多/photo目录下的照片路径
+            ];
+            
+            defaultPhotoPaths.forEach(photoPath => {
+                new THREE.TextureLoader().load(photoPath, (texture) => {
+                    texture.colorSpace = THREE.SRGBColorSpace;
+                    addPhotoToScene(texture);
+                }, undefined, (err) => {
+                    console.warn('Failed to load photo:', photoPath, err);
+                });
+            });
         }
 
         function addPhotoToScene(texture) {
