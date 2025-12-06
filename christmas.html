@@ -142,6 +142,11 @@
         <canvas id="webcam-preview"></canvas>
     </div>
 
+    <!-- Audio element -->
+    <audio id="bgm" loop>
+        <source src="/christmas-tree/christmas.mp3" type="audio/mpeg">
+    </audio>
+
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -201,6 +206,11 @@
             const loader = document.getElementById('loader');
             loader.style.opacity = 0;
             setTimeout(() => loader.remove(), 800);
+
+            // Play audio
+            const bgm = document.getElementById('bgm');
+            bgm.volume = 0.3; // 设置音量为30%
+            bgm.play().catch(e => console.log("Audio play failed: ", e));
 
             animate();
         }
